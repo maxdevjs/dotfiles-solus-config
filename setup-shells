@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+echo setup-shells
+
+# Interesting readings:
+# https://unix.stackexchange.com/questions/38175/difference-between-login-shell-and-non-login-shell/46856#46856
+function setup_shell () {
+  SHELL_CURRENT=`echo $SHELL`
+  SHELL_NEW=/usr/bin/fish
+  
+  echo -e "Current SHELL is $SHELL_CURRENT"
+  
+  if [[ ! $SHELL_CURRENT =~ fish ]]; then
+    # https://blog.liang2.tw/posts/2017/01/without-chsh/
+    if "$SHELL_NEW" -c 'echo "Test fish running" >/dev/null' ; then
+      chsh -s $SHELL_NEW maxdevjs
+      echo -e "$SHELL_NEW is the new  default SHELL"
+    else
+      echo "Failed to launch fish shell. Go check its installation!"
+      echo "Fall back to default shell $SHELL ..."
+    fi
+  fi
+}
+
+setup_shell

@@ -1,0 +1,40 @@
+#!/usr/bin/env sh
+echo setup-dev-tools
+
+# https://fly.io/
+function setup_fly () {
+  if ! exists flyctl; then
+    curl -L https://fly.io/install.sh | sh
+  fi
+}
+
+# https://devcenter.heroku.com/articles/heroku-cli
+function setup_heroku () {
+  if ! exists heroku; then
+    #curl https://cli-assets.heroku.com/install.sh | sh
+    #npm install -g heroku
+    heroku --version
+  fi
+}
+
+# https://nodejs.dev/
+function setup_nvm () {
+  if ! exists heroku; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+    #nvm install --lts
+  fi
+}
+
+function setup_vercel () {
+  if ! exists vercel; then
+    # https://vercel.com/cli
+    npm i -g vercel
+    # https://vercel.com/docs/cli#commands/dev
+  fi
+}
+
+#setup_fly
+#setup_heroku
+#setup_nvm
+#setup_vercel
+

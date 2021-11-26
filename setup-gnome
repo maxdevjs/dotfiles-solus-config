@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+echo setup-gnome
+
+function setup_gnome () {
+  # https://getsol.us/articles/software/desktop-environments/en/
+  if ! exists gnome-shell; then
+    sudo eopkg rm lightdm
+    sudo eopkg install gdm gnome-shell gnome-desktop-branding-fortitude
+  fi
+}
+
+setup_gnome

@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+echo setup-bspwm
+
+function setup_bspwm () {
+  # https://getsol.us/articles/software/desktop-environments/en/
+  if ! exists bspwm; then
+    sudo eopkg install bspwm sxhkd #dunst
+  fi
+}
+
+setup_bspwm

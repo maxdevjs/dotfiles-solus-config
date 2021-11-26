@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+echo setup-direnv
+
+function setup_direnv () {
+  # https://api.github.com/repos/direnv/direnv/releases/latest
+  # https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8
+  DIRENV_LASTEST=`curl -s https://api.github.com/repos/direnv/direnv/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
+  
+  if ! exists $BIN_DIR/direnv; then
+    curl -fLo $BIN_DIR/direnv https://github.com/direnv/direnv/releases/download/${DIRENV_LASTEST}/direnv.linux-386 && chmod a+x $BIN_DIR/direnv
+  else
+    DIRENV_CURRENT=`direnv --version`
+    if [ $(version $DIRENV_CURRENT) -lt $(version $DIRENV_LASTEST) ]; then
+      echo -e "Updating direnv to ${DIRENV_LASTEST}"
+      curl -fLo $BIN_DIR/direnv https://github.com/direnv/direnv/releases/download/${DIRENV_LASTEST}/direnv.linux-386 && chmod a+x $BIN_DIR/direnv
+    fi
+  fi
+}
+
+setup_direnv

@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+echo setup-i3
+
+function setup_gnome () {
+  # https://getsol.us/articles/software/desktop-environments/en/
+  if ! exists i3; then
+    sudo eopkg install i3 nitrogen #dunst
+  fi
+}
+
+setup_gnome

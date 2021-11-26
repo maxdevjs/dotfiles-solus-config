@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+echo setup-utilities
+
+# https://www.tutorialspoint.com/unix/unix-basic-operators.htm
+
+BIN_DIR=$HOME/Me/system/bin
+LIST_INSTALLED=`eopkg list-installed | cut -d' ' -f1`
+
+exists() { type -t "$1" > /dev/null 2>&1; }
+
+# https://stackoverflow.com/a/37939589
+function version { echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'; }
+
+if [ ! -d "$BIN_DIR" ]; then
+  mkdir -p $BIN_DIR
+fi
+
+

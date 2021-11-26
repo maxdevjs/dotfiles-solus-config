@@ -1,0 +1,75 @@
+#!/usr/bin/env sh
+echo setup-packages
+
+function install_packages () {
+  
+  #if [[ $LIST_INSTALLED != gcc ]]; then
+  if ! exists gcc; then
+    # https://getsol.us/articles/package-management/basics/en/
+    sudo eopkg install -c system.devel > /dev/null 2>&1;
+  fi
+  
+  # https://askubuntu.com/a/674347
+  #local list=("$@")
+  list=("$@")
+  installed=( $LIST_INSTALLED )
+  
+  #list=$@
+  #for ipackage in "${installed[@]}"; do
+  #echo $ipackage
+  for package in "${list[@]}"; do
+#echo -e "package is $package"
+  #for package in "$@"; do
+    #if [[ ! $package =~ $ipackage ]]; then
+    #if [[ "$LIST_INSTALLED" != *"$package"* ]]; then
+    if [[ ! $LIST_INSTALLED =~ $package ]]; then
+      #echo -e "Installing:\t$package"
+      sudo eopkg install -y $package
+    #else
+      #echo -e "Package already installed:\t$package"
+    fi
+  done
+}
+
+#PACKAGES_CONFIG=(yadm)
+PACKAGES_DEV_LANGUAGES=(elixir luarocks)
+PACKAGES_DEV_TOOLS=(git git-cola git-extras github-cli tig) #beekeeper-studio
+PACKAGES_EDITORS=(neovim python-neovim vim vscode)
+PACKAGES_FILE_MANAGERS_NAUTILUS=(dconf-editor filemanager-actions-nautilus gnome-sushi nautilus-folder-icons nautilus-sendto nautilus-share nautilus-terminal seahorse-nautilus)
+PACKAGES_FONTS=(font-jetbrainsmono-ttf)
+PACKAGES_GAMES=(gnome-2048)
+PACKAGES_GRAPHICS=(gcolor3 gimp inkscape)
+PACKAGES_KERNEL=(linux-current-headers)
+PACKAGES_MESSAGING=(telegram)
+PACKAGES_MULTIMEDIA=(cheese mpv pavucontrol radiotray-ng)
+PACKAGES_NETWORK=(dstat openssh-server)
+PACKAGES_SHELLS=(fish)
+PACKAGES_SYSTEM=(hdparm gnome-tweaks lxappearance zlib)
+PACKAGES_SYSTEM_ICONS=(sardi-icons-ghost)
+PACKAGES_SYSTEM_ENERGY_MANAGEMENT=(acpi gsmartcontrol smartmontools tlp)
+PACKAGES_SYSTEM_THEMES=(vimix-gtk-theme)
+PACKAGES_SYSTEM_NETWORK=(ethtool)
+PACKAGES_TERMINALS=(kitty)
+PACKAGES_TERMINALS_UTILITIES=(bat exa fd fzf htop iftop iotop jq neofetch nnn powertop ripgrep screenfetch silver-searcher xkill xrdb xsel)
+
+#Sinstall "${PACKAGES_CONFIG[@]}"
+install_packages "${PACKAGES_DEV_LANGUAGES[@]}"
+install_packages "${PACKAGES_DEV_TOOLS[@]}"
+install_packages "${PACKAGES_EDITORS[@]}"
+install_packages "${PACKAGES_FILE_MANAGERS_NAUTILUS[@]}"
+install_packages "${PACKAGES_FONTS[@]}"
+install_packages "${PACKAGES_GAMES[@]}"
+install_packages "${PACKAGES_GRAPHICS[@]}"
+#install_packages "${PACKAGES_KERNEL[@]}"
+install_packages "${PACKAGES_MESSAGING[@]}"
+install_packages "${PACKAGES_MULTIMEDIA[@]}"
+install_packages "${PACKAGES_SHELLS[@]}"
+install_packages "${PACKAGES_SYSTEM[@]}"
+install_packages "${PACKAGES_SYSTEM_ICONS[@]}"
+install_packages "${PACKAGES_SYSTEM_ENERGY_MANAGEMENT[@]}"
+install_packages "${PACKAGES_SYSTEM_THEMES[@]}"
+install_packages "${PACKAGES_SYSTEM_NETWORK[@]}"
+install_packages "${PACKAGES_NETWORK[@]}"
+install_packages "${PACKAGES_TERMINALS[@]}"
+install_packages "${PACKAGES_TERMINALS_UTILITIES[@]}"
+

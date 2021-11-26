@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+echo setup-flatpack
+
+function setup_flatpack () {
+  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  
+  # https://www.internet-radio.com/
+  #flatpak install flathub io.gitlab.Goodvibes com.rafaelmardojai.Blanket org.processing.processingide om.getpostman.Postman com.github.artemanufrij.regextester #com.github.alecaddd.sequeler com.sublimemerge.App com.github.mdh34.quickdocs
+  # partyvibe https://www.internet-radio.com/station/pvc-psytrance/ http://www.partyviberadio.com:8010/listen.pls?sid=1&t=.mp3
+  
+  # https://fostips.com/remove-flatpak-apps-free-up-disk/
+  #flatpak list --app
+  #flatpak list --runtime
+  #flatpak uninstall --delete-data ...
+  #flatpak uninstall --unused
+  #flatpak uninstall --all --delete-data
+}
+
+setup_flatpack

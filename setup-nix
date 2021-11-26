@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+echo setup-nix
+
+function setup_nix () {
+  if ! exists nix; then
+    curl -L https://nixos.org/nix/install | sh
+    # https://nixos.org/manual/nix/stable/introduction.html
+  fi
+}
+
+setup_nix

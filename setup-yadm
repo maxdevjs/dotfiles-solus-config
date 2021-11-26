@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+echo setup-yadm
+
+function setup_yadm () {
+  if ! exists $BIN_DIR/yadm; then
+    curl -fLo $BIN_DIR/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x $BIN_DIR/yadm
+    
+    # later add it to path
+    #$BIN_DIR/yadm submodule update --init --recursive
+  fi
+}
+
+setup_yadm

@@ -1,0 +1,41 @@
+#!/usr/bin/env sh
+echo setup-docker
+
+function setup_docker () {
+  if ! exists docker; then
+    # https://matty.digital/tech/docker-on-solus/
+    sudo eopkg install -y docker docker-compose kitematic
+  
+    # AppArmor
+    # https://docs.docker.com/engine/install/binaries/
+        
+    # https://docs.docker.com/engine/install/linux-postinstall/
+    # Manage Docker as a non-root user
+    # https://github.com/docker/kitematic/issues/2528
+    # https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
+    # https://stackoverflow.com/questions/49434650/how-to-add-a-user-to-a-group-without-logout-login-bash-script
+    # https://superuser.com/questions/272061/reload-a-linux-users-group-assignments-without-logging-out#comment1036933_609141
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    newgrp docker #&& exec sudo su -l $USER
+    
+    # https://stackoverflow.com/a/51362528
+    sudo chmod 666 /var/run/docker.sock
+
+    #docker run hello-world
+    #sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+    #sudo chmod g+rwx "$HOME/.docker" -R
+    
+    # Configure Docker to start on boot
+    # https://docs.docker.com/engine/install/linux-postinstall/#configure-docker-to-start-on-boot
+    #sudo systemctl enable docker && sudo systemctl start docker
+    #sudo systemctl enable docker.service && sudo systemctl enable containerd.service
+    systemctl enable docker.service && systemctl enable containerd.service
+    
+    # In case: https://discuss.getsol.us/d/3157-docker-not-running/3
+    #sudo rm -rf /var/lib/docker/overlay
+    
+  fi
+}
+
+setup_docker

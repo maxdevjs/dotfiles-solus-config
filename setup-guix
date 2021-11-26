@@ -1,0 +1,52 @@
+#!/usr/bin/env sh
+echo setup-guix
+
+function setup_guix () {
+  if ! exists guix; then
+    echo "------------ Downloading Guix"
+    # https://guix.gnu.org/manual/en/html_node/Binary-Installation.html
+    cd /tmp
+    wget https://git.savannah.gnu.org/cgit/guix.git/plain/etc/guix-install.sh
+    wget https://ftp.gnu.org/gnu/guix/guix-binary-1.3.0.x86_64-linux.tar.xz.sig
+    
+    wget 'https://sv.gnu.org/people/viewgpg.php?user_id=127547' \
+      -qO - | gpg --import -
+
+    gpg --verify guix-binary-1.3.0.x86_64-linux.tar.xz.sig
+    
+    chmod +x guix-install.sh
+    
+    echo "------------ Installing Guix"
+    sudo ./guix-install.sh
+    
+    # solve nscd
+    
+    echo "------------ Installed Guix"
+    # gs-fonts font-dejavu font-gnu-freefont
+    # nss-certs
+    fc-cache -rv
+    
+    # Run 'info guix' to read the manual.
+    # Required to source /etc/profile in desktop environments:
+    # Please log out and back in to complete the installation.
+
+    # https://guix.gnu.org/manual/en/html_node/Application-Setup.html
+    #export GUIX_LOCPATH=$HOME/.guix-profile/lib/locale
+    #guix install hello
+    #guix install: warning: Consider running 'guix pull' followed by
+    #'guix package -u' to get up-to-date packages and security updates.
+    #guix install glibc-locales fontconfig guile
+    
+    #hint: Consider setting the necessary environment variables by running:
+
+    #GUIX_PROFILE="/home/maxdevjs/.guix-profile"
+    # . "$GUIX_PROFILE/etc/profile"
+
+    #Alternately, see `guix package --search-paths -p "/home/maxdevjs/.guix-profile"'.
+    
+    #hint: After setting `PATH', run `hash guix' to make sure your shell refers to `/home/maxdevjs/.config/guix/current/bin/guix'.
+    
+  fi
+}
+
+setup_guix

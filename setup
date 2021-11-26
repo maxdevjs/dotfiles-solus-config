@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+
+. ./setup-utilities
+. ./setup-shells
+. ./setup-yadm
+. ./setup-direnv
+. ./setup-nix
+. ./setup-guix
+. ./setup-ssh
+. ./setup-flatpak
+. ./setup-docker
+. ./setup-packages
+. ./setup-bspwm
+. ./setup-i3
+. ./setup-3rd-party
+. ./setup-dev-tools
+#. ./setup-gnome
+
+#install_3rd_party "${PACKAGES_3RD_PARTY[@]}"
+
+
+# https://averagelinuxuser.com/after-installing-solus/
+

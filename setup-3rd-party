@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+echo "setup-3rd-party (DEPRECATED)"
+
+# DEPRECATED
+# replacing the majority of them in Solus with Snap
+# https://getsol.us/articles/software/third-party/en/
+# https://github.com/getsolus/3rd-party/
+
+PACKAGES_3RD_PARTY=(google-chrome-beta google-chrome-stable google-chrome-unstable)
+
+function install_3rd_party () {
+
+  # https://askubuntu.com/a/674347
+  #local list=("$@")
+  #for package in "${list[@]}"; do
+  for package in "$@"; do
+    sudo eopkg bi --ignore-safety https://raw.githubusercontent.com/getsolus/3rd-party/master/network/web/browser/${package}/pspec.xml
+    sudo eopkg it google-chrome-*.eopkg;sudo rm google-chrome-*.eopkg
+  done
+}
+
