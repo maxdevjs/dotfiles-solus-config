@@ -35,8 +35,9 @@ function install_packages () {
 PACKAGES_DEV_LANGUAGES=(elixir luarocks)
 PACKAGES_DEV_TOOLS=(git git-cola git-extras github-cli tig) #beekeeper-studio
 PACKAGES_EDITORS=(neovim python-neovim vim vscode)
+PACKAGES_EMACS=(emacs)
 PACKAGES_FILE_MANAGERS_NAUTILUS=(dconf-editor filemanager-actions-nautilus gnome-sushi nautilus-folder-icons nautilus-sendto nautilus-share nautilus-terminal seahorse-nautilus)
-PACKAGES_FONTS=(font-jetbrainsmono-ttf)
+PACKAGES_FONTS=(font-awesome-ttf font-jetbrainsmono-ttf source-code-pro)
 PACKAGES_GAMES=(gnome-2048)
 PACKAGES_GRAPHICS=(gcolor3 gimp inkscape)
 PACKAGES_KERNEL=(linux-current-headers)
@@ -56,6 +57,7 @@ PACKAGES_TERMINALS_UTILITIES=(bat exa fd fzf htop iftop iotop jq neofetch nnn po
 install_packages "${PACKAGES_DEV_LANGUAGES[@]}"
 install_packages "${PACKAGES_DEV_TOOLS[@]}"
 install_packages "${PACKAGES_EDITORS[@]}"
+install_packages "${PACKAGES_EMACS[@]}"
 install_packages "${PACKAGES_FILE_MANAGERS_NAUTILUS[@]}"
 install_packages "${PACKAGES_FONTS[@]}"
 install_packages "${PACKAGES_GAMES[@]}"
