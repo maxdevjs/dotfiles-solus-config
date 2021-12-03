@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+echo setup-fonts
+
+function setup_fonts () {
+  list=("$@")
+  installed=( $LIST_INSTALLED )
+
+  for package in "${list[@]}"; do
+    if [[ ! $LIST_INSTALLED =~ $package ]]; then
+      echo -e "Installing:\t$package"
+      #sudo eopkg install -y $package
+    else
+      echo -e "Package already installed:\t$package"
+    fi
+  done
+}
+
+
+PACKAGES_FONTS=(font-manager font-awesome-ttf font-jetbrainsmono-ttf source-code-pro)
+
+setup_fonts "${PACKAGES_FONTS[@]}"
+
+# TODO: how to check it 😁
+# https://github.com/microsoft/cascadia-code/
+# https://api.github.com/repos/microsoft/cascadia-code/releases/latest
+
+# https://rubjo.github.io/victor-mono/
+# https://rubjo.github.io/victor-mono/VictorMonoAll.zip

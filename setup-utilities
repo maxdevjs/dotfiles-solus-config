@@ -3,7 +3,7 @@ echo setup-utilities
 
 # https://www.tutorialspoint.com/unix/unix-basic-operators.htm
 
-BIN_DIR=$HOME/Me/system/bin
+BIN_DIR=$HOME/.local/bin
 LIST_INSTALLED=`eopkg list-installed | cut -d' ' -f1`
 
 exists() { type -t "$1" > /dev/null 2>&1; }

@@ -3,6 +3,7 @@ echo setup-flatpack
 
 function setup_flatpack () {
   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  flatpak remote-add --if-not-exists flathub https://flatpak.elementary.io/repo.flatpakrepo
   
   # https://www.internet-radio.com/
   #flatpak install flathub io.gitlab.Goodvibes com.rafaelmardojai.Blanket org.processing.processingide om.getpostman.Postman com.github.artemanufrij.regextester #com.github.alecaddd.sequeler com.sublimemerge.App com.github.mdh34.quickdocs

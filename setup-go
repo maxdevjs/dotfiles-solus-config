@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+echo setup-go
+
+function install_go () {
+  sudo eopkg install golang
+}
+
+function setup_go () {
+  
+  if ! exists go; then
+    install_go
+  #else
+    #VERSION_CURRENT=``
+  #  if [ $(versionen $VERSION_CURRENT) -lt $(version $VERSION) ]; th
+  #    echo  older $VERSION $PACKAGE_VERSION
+  #    install_go
+  #  fi
+  fi
+}
+
+setup_go

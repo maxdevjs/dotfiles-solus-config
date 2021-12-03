@@ -1,15 +1,19 @@
 #!/usr/bin/env sh
 
+# look at this: it sets things up
 . ./setup-utilities
+. ./setup-system-packages
+
 . ./setup-shells
 . ./setup-yadm
 . ./setup-direnv
+. ./setup-fonts
+. ./setup-go
 . ./setup-nix
 . ./setup-guix
 . ./setup-ssh
 . ./setup-flatpak
 . ./setup-docker
-. ./setup-packages
 . ./setup-bspwm
 . ./setup-i3
 . ./setup-3rd-party
