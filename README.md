@@ -4,7 +4,7 @@ Personal config/setup files for Solus
 
 ## What is this?
 
-A `dynamic` script that provides the inital setup for a new [Solus](https://getsol.us/home/) installation. 
+A `dynamic` script that provides the inital setup for a new [Solus](https://getsol.us/home/) installation.
 
 ## How does it work?
 
@@ -28,13 +28,72 @@ Consequently, I should achieve a minimal reproducibility.
 - run `./setup`
 - it should then offer a configured and ready to be used system
 
+> ☢️ WIP
+>
+> ☢️ Warning: I strive to commit only working versions, but 💩 can happen
+
 ## TODO
 
-- [ ] fix setup `regex` for very short program names
+- [ ] 🤪 add used tools to README (?)
+- [ ] 😌 add structure to README (!)
 
-- [ ] add used tools to README
-- [ ] add general `bin` (ideally to `$HOME/.local/bin`) scripts
-- [ ] add specific to [Solus](https://getsol.us/home/) `bin` (ideally to `$HOME/.local/bin`) scripts
-- [ ] add vpn
-- [ ] ...
+~~`setup-packages`~~
+`setup-system-packages`
+
+- [x] 🧠 rename to `setup-system-packages`
+- [ ] 🤪 fix setup `regex` for very short program names
+- [ ] 🛰️ add vpn (working, must plug it in config)
+
+`setup-utilities`
+
+- [x] 🗑️ add general `bin` (ideally to `$HOME/.local/bin`) scripts
+- [ ] 🤪 add specific to [Solus](https://getsol.us/home/) `bin` (ideally to `$HOME/.local/bin`) scripts
+
+`setup-dev-tools`
+
+- [ ] 🧠 possibly `DRY` refactor
+
+- [ ] ⚙️ test `fly`
+- [ ] ⚙️ test `heroku`
+- [ ] ⚙️ test `nvm` (see [Guix](#guix) and [Nix](#nix) sections)
+- [ ] ⚙️ check and install latest `nvm`
+- [ ] ⚙️ test `nvm` integration with [Fish](https://fishshell.com/)
+- [ ] ⚙️ [nvm.fish](https://github.com/jorgebucaran/nvm.fish)
+- [ ] ⚙️ [fish-nvm](https://github.com/FabioAntunes/fish-nvm)
+- [ ] ⚙️ test `nvm`
+- [ ] ⚙️ test `vercel`
+
+`setup-fonts`
+
+- [x] add system fonts
+- [ ] 🤔 put back system fonts in `setup-system-packages`
+- [ ] 🤔 add external fonts
+
+`setup-yadm`
+
+- [ ] 🧠 check version (as per `direnv`)
+
+`guix`
+
+- [x] install and test
+- [ ] clean the 💩
+
+`nix`
+
+- [x] install and test
+- [ ] clean the 💩
+
+## Additional 🤪
+
+> The following should be interesting alternatives for development.
+>
+> Also, as alternatives to Flatpak/Snap.
+
+### Guix
+
+...
+
+### Nix
+
+[maxdevjs/dev-nix-shells](https://github.com/maxdevjs/dev-nix-shells)
 
