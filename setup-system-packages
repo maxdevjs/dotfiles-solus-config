@@ -54,7 +54,7 @@ PACKAGES_SYSTEM_ENERGY_MANAGEMENT=(acpi gsmartcontrol smartmontools tlp)
 PACKAGES_SYSTEM_THEMES=(vimix-gtk-theme)
 PACKAGES_SYSTEM_NETWORK=(ethtool)
 PACKAGES_TERMINALS=(kitty)
-PACKAGES_TERMINALS_UTILITIES=(bat exa fd fzf htop iftop iotop jq neofetch nnn powertop ripgrep rmlint rsync screenfetch silver-searcher xkill xrdb xsel)
+PACKAGES_TERMINALS_UTILITIES=(bat exa fd fzf htop iftop iotop jq ncdu neofetch nnn powertop ripgrep rmlint rsync screenfetch silver-searcher xkill xrdb xsel)
 
 #install_packages "${PACKAGES_CONFIG[@]}"
 install_packages "${PACKAGES_BROWSERS[@]}"
