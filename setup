@@ -7,6 +7,7 @@
 . ./setup-shells
 . ./setup-yadm
 . ./setup-direnv
+. ./setup-dlang
 . ./setup-fonts
 . ./setup-go
 . ./setup-nix
@@ -18,6 +19,8 @@
 . ./setup-i3
 . ./setup-3rd-party
 . ./setup-dev-tools
+. ./setup-samba
+. ./setup-vnc
 #. ./setup-gnome
 
 #install_3rd_party "${PACKAGES_3RD_PARTY[@]}"

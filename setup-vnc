@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+echo setup-vnc
+
+# cannot connect to tigervnc server in fedora 35 #177  https://github.com/bk138/multivnc/issues/177
+# https://www.thesslstore.com/blog/tls-handshake-failed/
+# https://tutorialforlinux.com/2021/10/13/step-by-step-samba-file-sharing-on-fedora-35/2/
+
+function install_vnc () {
+  sudo eopkg install remmina tigervnc
+  # x0vncserver -passwordfile ~/.vnc/passwd -display :0
+}
+
+function setup_vnc () {
+  
+  if ! exists x0vncserver; then
+    install_vnc
+  #else
+    #VERSION_CURRENT=``
+  #  if [ $(versionen $VERSION_CURRENT) -lt $(version $VERSION) ]; th
+  #    echo  older $VERSION $PACKAGE_VERSION
+  #    install_go
+  #  fi
+  fi
+}
+
+setup_vnc

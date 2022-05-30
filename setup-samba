@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+echo setup-samba
+
+# https://getsol.us/articles/software/samba/en/
+# https://tldp.org/HOWTO/SMB-HOWTO-8.html
+

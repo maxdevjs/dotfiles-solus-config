@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Restart budgie desktop
+Icon=preferences-desktop
+Categories=System;Settings;
+Exec=sh -c 'nohup budgie-panel --replace&'

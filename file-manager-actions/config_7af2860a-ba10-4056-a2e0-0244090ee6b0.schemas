@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gconfschemafile>
+  <schemalist>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/type</key>
+      <applyto>/apps/nautilus-actions/configurations/7af2860a-ba10-4056-a2e0-0244090ee6b0/type</applyto>
+      <type>string</type>
+      <default>Action</default>
+      <locale name="C">
+        <short>Type of the item</short>
+        <long>Defines if the item is an action or a menu. Possible values are :
+- 'Action',
+- 'Menu'.
+The value is case sensitive and must not be localized.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/iversion</key>
+      <applyto>/apps/nautilus-actions/configurations/7af2860a-ba10-4056-a2e0-0244090ee6b0/iversion</applyto>
+      <type>int</type>
+      <default>3</default>
+      <locale name="C">
+        <short>Version of the format</short>
+        <long>The version of the configuration format that will be used to manage backward compatibility.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/items</key>
+      <applyto>/apps/nautilus-actions/configurations/7af2860a-ba10-4056-a2e0-0244090ee6b0/items</applyto>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[profile-zero]</default>
+      <locale name="C">
+        <short>List of subitem ids</short>
+        <long>Ordered list of the IDs of the subitems. This may be actions or menus if the item is a menu, or profiles if the item is an action.
+If this list doesn't exist or is empty for an action or a menu, subitems are attached in the order of the read operations.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/label</key>
+      <applyto>/apps/nautilus-actions/configurations/7af2860a-ba10-4056-a2e0-0244090ee6b0/label</applyto>
+      <type>string</type>
+      <locale name="C">
+        <default>NPM init</default>
+        <short>Label of the context menu item (mandatory)</short>
+        <long>The label of the menu item that will appear in the file manager context menu when the selection matches the appearance condition settings.
+It is also used as a default for the toolbar label of an action.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/tooltip</key>
+      <applyto>/apps/nautilus-actions/configurations/7af2860a-ba10-4056-a2e0-0244090ee6b0/tooltip</applyto>
+      <type>string</type>
+      <locale name="C">
+        <default>NPM init</default>
+        <short>Tooltip of the context menu item</short>
+        <long>The tooltip of the menu item that will appear in the file manager statusbar when the user points to the file manager context menu item with his/her mouse.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/icon</key>
+      <applyto>/apps/nautilus-actions/configurations/7af2860a-ba10-4056-a2e0-0244090ee6b0/icon</applyto>
+      <type>string</type>
+      <locale name="C">
+        <default>download</default>
+        <short>Icon of the context menu item</short>
+        <long>The icon of the menu item that will appear next to the label in the file manager context menu when the selection matches the appearance conditions settings.
+May be the localized name of a themed icon, or a full path to any appropriate image.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/target-location</key>
+      <applyto>/apps/nautilus-actions/configurations/7af2860a-ba10-4056-a2e0-0244090ee6b0/target-location</applyto>
+      <type>bool</type>
+      <default>true</default>
+      <locale name="C">
+        <short>Targets the location context menu</short>
+        <long>Whether the action targets the file manager context menus when there is no selection, thus applying to current location.
+Note that menus are always potential candidate to the display in selection context menus provided that they contain at least one action.
+Defaults to FALSE</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/toolbar-label</key>
+      <applyto>/apps/nautilus-actions/configurations/7af2860a-ba10-4056-a2e0-0244090ee6b0/toolbar-label</applyto>
+      <type>string</type>
+      <locale name="C">
+        <default>NPM init</default>
+        <short>Label of the toolbar item</short>
+        <long>The label displayed besides of the icon in the file manager toolbar.
+Note that actual display may depend of your own Desktop Environment preferences.
+Defaults to label of the context menu when not set or empty.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/desc-name</key>
+      <applyto>/apps/nautilus-actions/configurations/7af2860a-ba10-4056-a2e0-0244090ee6b0/profile-zero/desc-name</applyto>
+      <type>string</type>
+      <locale name="C">
+        <default>Default profile</default>
+        <short>Name of the profile</short>
+        <long>May be used as a description for the function of the profile.
+If not set, it defaults to an auto-generated name.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/path</key>
+      <applyto>/apps/nautilus-actions/configurations/7af2860a-ba10-4056-a2e0-0244090ee6b0/profile-zero/path</applyto>
+      <type>string</type>
+      <default>/home/maxdevjs/.local/bin/dev-npm-init</default>
+      <locale name="C">
+        <short>Path of the command</short>
+        <long>The path of the command to be executed when the user select the menu item in the file manager context menu or in the toolbar.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/execution-mode</key>
+      <applyto>/apps/nautilus-actions/configurations/7af2860a-ba10-4056-a2e0-0244090ee6b0/profile-zero/execution-mode</applyto>
+      <type>string</type>
+      <default>DisplayOutput</default>
+      <locale name="C">
+        <short>Execution mode</short>
+        <long>Execution mode of the program.
+This may be chosen between following values:
+- Normal: starts as a standard graphical user interface
+- Terminal: starts the preferred terminal of the graphical environment, and runs the command in it
+- Embedded: makes use of a special feature of the file manager which allows a terminal to be ran inside of it; an acceptable fallback is Terminal
+- DisplayOutput: the ran terminal may be closed at end of the command, but standard streams (stdout, stderr) should be collected and displayed; an acceptable fallback is Terminal.
+Defaults to "Normal".</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/folders</key>
+      <applyto>/apps/nautilus-actions/configurations/7af2860a-ba10-4056-a2e0-0244090ee6b0/profile-zero/folders</applyto>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[*]</default>
+      <locale name="C">
+        <short>List of folders</short>
+        <long>Defines the list of valid paths to be matched against the current folder.
+ All folders 'under' the specified path are considered valid.
+Defaults to '/'.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+  </schemalist>
+</gconfschemafile>

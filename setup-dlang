@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+echo setup-dlang
+
+function install_dlang () {
+  sudo eopkg install curl-devel dmd dub rocksdb rocksdb-devel xxhash xxhash-devel zstd zstd-devel
+}
+
+function setup_dlang () {
+  
+  if ! exists ldc2; then
+    install_dlang
+  #else
+    #VERSION_CURRENT=``
+  #  if [ $(versionen $VERSION_CURRENT) -lt $(version $VERSION) ]; th
+  #    echo  older $VERSION $PACKAGE_VERSION
+  #    install_go
+  #  fi
+  fi
+}
+
+#setup_dlang
+install_dlang

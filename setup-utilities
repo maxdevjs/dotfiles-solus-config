@@ -15,4 +15,4 @@ if [ ! -d "$BIN_DIR" ]; then
   mkdir -p $BIN_DIR
 fi
 
-
+cp ./.local/share/applications/restart-budgie.desktop ~/.local/share/applications/

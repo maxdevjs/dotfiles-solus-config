@@ -36,6 +36,6 @@ function setup_vercel () {
 
 #setup_fly
 #setup_heroku
-#setup_nvm
+setup_nvm
 #setup_vercel
 
