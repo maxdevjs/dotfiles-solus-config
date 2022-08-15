@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gconfschemafile>
+  <schemalist>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/type</key>
+      <applyto>/apps/nautilus-actions/configurations/98191f85-3e3b-4a6e-b6a5-92f4fa320cf7/type</applyto>
+      <type>string</type>
+      <default>Menu</default>
+      <locale name="C">
+        <short>Type of the item</short>
+        <long>Defines if the item is an action or a menu. Possible values are :
+- 'Action',
+- 'Menu'.
+The value is case sensitive and must not be localized.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/iversion</key>
+      <applyto>/apps/nautilus-actions/configurations/98191f85-3e3b-4a6e-b6a5-92f4fa320cf7/iversion</applyto>
+      <type>int</type>
+      <default>3</default>
+      <locale name="C">
+        <short>Version of the format</short>
+        <long>The version of the configuration format that will be used to manage backward compatibility.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/items</key>
+      <applyto>/apps/nautilus-actions/configurations/98191f85-3e3b-4a6e-b6a5-92f4fa320cf7/items</applyto>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[d36579cc-0473-4833-a936-f1c05213bcf0,7af2860a-ba10-4056-a2e0-0244090ee6b0,e68ce074-16df-43c4-bd56-b8d462791b28,cbb73573-8c55-4925-bf8e-44cec1cdc17a,dfab3968-1308-485e-af28-bf3b0069e1bb,ef5ece2e-ca06-48b1-85f3-afefed31606e,c076d229-0cbd-4898-9c68-4a3e0c2f884d,a7232f95-5b37-419f-b41b-19077782698a,6b89eec7-ac11-4271-8509-7a47532919e4,8825df88-6374-4496-8a09-4960bcf9e903]</default>
+      <locale name="C">
+        <short>List of subitem ids</short>
+        <long>Ordered list of the IDs of the subitems. This may be actions or menus if the item is a menu, or profiles if the item is an action.
+If this list doesn't exist or is empty for an action or a menu, subitems are attached in the order of the read operations.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/tooltip</key>
+      <applyto>/apps/nautilus-actions/configurations/98191f85-3e3b-4a6e-b6a5-92f4fa320cf7/tooltip</applyto>
+      <type>string</type>
+      <locale name="C">
+        <default>My Menu</default>
+        <short>Tooltip of the context menu item</short>
+        <long>The tooltip of the menu item that will appear in the file manager statusbar when the user points to the file manager context menu item with his/her mouse.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/label</key>
+      <applyto>/apps/nautilus-actions/configurations/98191f85-3e3b-4a6e-b6a5-92f4fa320cf7/label</applyto>
+      <type>string</type>
+      <locale name="C">
+        <default>My Menu</default>
+        <short>Label of the context menu item (mandatory)</short>
+        <long>The label of the menu item that will appear in the file manager context menu when the selection matches the appearance condition settings.
+It is also used as a default for the toolbar label of an action.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+  </schemalist>
+</gconfschemafile>

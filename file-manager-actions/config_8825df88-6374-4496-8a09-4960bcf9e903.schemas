@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gconfschemafile>
+  <schemalist>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/type</key>
+      <applyto>/apps/nautilus-actions/configurations/8825df88-6374-4496-8a09-4960bcf9e903/type</applyto>
+      <type>string</type>
+      <default>Menu</default>
+      <locale name="C">
+        <short>Type of the item</short>
+        <long>Defines if the item is an action or a menu. Possible values are :
+- 'Action',
+- 'Menu'.
+The value is case sensitive and must not be localized.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/iversion</key>
+      <applyto>/apps/nautilus-actions/configurations/8825df88-6374-4496-8a09-4960bcf9e903/iversion</applyto>
+      <type>int</type>
+      <default>3</default>
+      <locale name="C">
+        <short>Version of the format</short>
+        <long>The version of the configuration format that will be used to manage backward compatibility.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/items</key>
+      <applyto>/apps/nautilus-actions/configurations/8825df88-6374-4496-8a09-4960bcf9e903/items</applyto>
+      <type>list</type>
+      <list_type>string</list_type>
+      <default>[7689e19c-b9c5-4bc7-8712-fdf842434302,cb1a902f-00e7-4b5c-8023-3d3372696e33,824373ac-3dc2-42f0-a690-637a42b3c3e2,e168d815-fd3a-40cd-8d43-a81ddfe65f43]</default>
+      <locale name="C">
+        <short>List of subitem ids</short>
+        <long>Ordered list of the IDs of the subitems. This may be actions or menus if the item is a menu, or profiles if the item is an action.
+If this list doesn't exist or is empty for an action or a menu, subitems are attached in the order of the read operations.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+    <schema>
+      <key>/schemas/apps/nautilus-actions/configurations/label</key>
+      <applyto>/apps/nautilus-actions/configurations/8825df88-6374-4496-8a09-4960bcf9e903/label</applyto>
+      <type>string</type>
+      <locale name="C">
+        <default>Git</default>
+        <short>Label of the context menu item (mandatory)</short>
+        <long>The label of the menu item that will appear in the file manager context menu when the selection matches the appearance condition settings.
+It is also used as a default for the toolbar label of an action.</long>
+      </locale>
+      <owner>filemanager-actions</owner>
+    </schema>
+  </schemalist>
+</gconfschemafile>

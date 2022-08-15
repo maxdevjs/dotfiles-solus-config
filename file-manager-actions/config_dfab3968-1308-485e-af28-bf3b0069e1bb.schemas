@@ -67,7 +67,7 @@ It is also used as a default for the toolbar label of an action.</long>
       <applyto>/apps/nautilus-actions/configurations/dfab3968-1308-485e-af28-bf3b0069e1bb/icon</applyto>
       <type>string</type>
       <locale name="C">
-        <default>/usr/share/pixmaps/code.png</default>
+        <default>code-oss</default>
         <short>Icon of the context menu item</short>
         <long>The icon of the menu item that will appear next to the label in the file manager context menu when the selection matches the appearance conditions settings.
 May be the localized name of a themed icon, or a full path to any appropriate image.</long>
