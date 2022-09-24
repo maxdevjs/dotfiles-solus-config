@@ -21,7 +21,7 @@ function setup_heroku () {
 function setup_nvm () {
   if ! exists nvm; then
     # https://api.github.com/repos/nvm-sh/nvm/releases/latest
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
     #nvm install --lts
   fi
 }
