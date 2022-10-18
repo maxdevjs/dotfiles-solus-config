@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 echo setup-shells
 
+. ./setup-utilities
+
 # Interesting readings:
 # https://unix.stackexchange.com/questions/38175/difference-between-login-shell-and-non-login-shell/46856#46856
 function setup_shell () {
@@ -19,6 +21,9 @@ function setup_shell () {
       echo "Fall back to default shell $SHELL ..."
     fi
   fi
+  REPOS=(fish)
+  repos "${REPOS[@]}"
+  ~/.config/fish/setup/setup
 }
 
 setup_shell
