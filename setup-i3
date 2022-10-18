@@ -1,11 +1,17 @@
 #!/usr/bin/env sh
 echo setup-i3
 
-function setup_gnome () {
+. ./setup-utilities
+
+function setup_i3 () {
   # https://getsol.us/articles/software/desktop-environments/en/
   if ! exists i3; then
-    sudo eopkg install i3 nitrogen #dunst
+    sudo eopkg install dunst i3 nitrogen polybar rofi
   fi
+  
+  REPOS=(dunst i3 polybar)
+  repos "${REPOS[@]}"
+   
 }
 
-setup_gnome
+setup_i3
