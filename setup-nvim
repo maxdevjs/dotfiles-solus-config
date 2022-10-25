@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+echo setup-nvim
+
+. ./setup-utilities
+
+setup_nvim () {
+  #REPOS=(astrovim)
+
+  install_packages $@
+  
+  #mv ~/.config/nvim ~/.config/nvimbackup
+  # Currently testing AstroNvim
+  single_repo https://github.com/AstroNvim/AstroNvim nvim
+  single_repo https://github.com/maxdevjs/dotfiles-astronvim-config astronvim
+  
+  # Initialize AstroNvim
+  #nvim  --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  # setup LSP install
+  #
+}
+
+PACKAGES_I3=(neovim)
+
+setup_nvim "${PACKAGES_I3[@]}"

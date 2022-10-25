@@ -8,15 +8,16 @@ function setup_fonts () {
   for package in "${list[@]}"; do
     if [[ ! $LIST_INSTALLED =~ $package ]]; then
       echo -e "Installing:\t$package"
-      #sudo eopkg install -y $package
+      sudo eopkg install -y $package
     else
       echo -e "Package already installed:\t$package"
     fi
   done
+  fc-cache -f -v
 }
 
 
-PACKAGES_FONTS=(font-manager font-awesome-ttf font-jetbrainsmono-ttf source-code-pro)
+PACKAGES_FONTS=(font-awesome-ttf font-manager font-hack-ttf font-jetbrainsmono-ttf source-code-pro)
 
 setup_fonts "${PACKAGES_FONTS[@]}"
 

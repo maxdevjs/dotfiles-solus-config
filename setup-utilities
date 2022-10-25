@@ -3,6 +3,7 @@ echo setup-utilities
 
 # https://www.tutorialspoint.com/unix/unix-basic-operators.htm
 
+SETUP_DIR=$HOME/Me/system/setup
 BIN_DIR=$HOME/.local/bin
 LIST_INSTALLED=`eopkg list-installed | cut -d' ' -f1`
 
@@ -16,7 +17,47 @@ not_exists_dir() {
   [ ! -d $1 ]
 }
 
-function repos() {
+install_packages () {
+  # https://askubuntu.com/a/674347
+  #local list=("$@")
+  list=("$@")
+  installed=( $LIST_INSTALLED )
+
+  for package in "${list[@]}"; do
+    if [[ ! $LIST_INSTALLED =~ $package ]]; then
+      sudo eopkg install -y $package
+    fi
+  done
+}
+
+single_repo() {
+  DIR=$XDG_CONFIG_HOME
+  #DIR=$HOME/Desktop
+  cd $DIR
+
+  URL=${1}
+  repo=${2}
+
+  if not_exists_dir $DIR/$repo
+  then
+    
+    # https://superuser.com/a/1415376
+    if git_remote_url_reachable "$URL"; then
+       git clone $URL ${repo}
+    else
+      echo -e "\n\tApparently ${URL} does not exists (or it is not reachable at the moment)\n\tRemember to check it manually."
+      echo
+    fi
+  else
+    cd $DIR/$repo
+    echo -e "\t$PWD\n\tChecking if $repo is up-to-date, otherwise pulling updates."
+    git pull
+    echo
+  fi
+}
+
+
+repos() {
   list=("$@")
 
   for repo in "${list[@]}"; do
@@ -40,6 +81,8 @@ function repos() {
       echo
     fi
   done
+  
+  cd $SETUP_DIR
 }
 
 # https://stackoverflow.com/a/37939589
