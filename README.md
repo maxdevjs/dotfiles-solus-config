@@ -3,6 +3,7 @@
 Personal config/setup files for Solus
 
 > Manually add `maxdevjs ALL = NOPASSWD: /usr/bin/eopkg, /usr/bin/solus-sc` to `/etc/sudoers`
+> Manually install `Symbols Nerd Font` for icons
 
 ## What is this?
 
