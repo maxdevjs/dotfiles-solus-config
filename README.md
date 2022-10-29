@@ -2,6 +2,8 @@
 
 Personal config/setup files for Solus
 
+> Manually add `maxdevjs ALL = NOPASSWD: /usr/bin/eopkg, /usr/bin/solus-sc` to `/etc/sudoers`
+
 ## What is this?
 
 A `dynamic` script that provides the inital setup for a new [Solus](https://getsol.us/home/) installation.
