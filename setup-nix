@@ -1,10 +1,32 @@
 #!/usr/bin/env sh
 echo setup-nix
 
+# Includes setup-utilities only for standalone (directly calling)
+# use of this script (otherwise the script is called from setup
+# and the import is not necessary)
+if [ $0 ]
+then
+. ./setup-utilities
+fi
+
 function setup_nix () {
   if ! exists nix; then
-    curl -L https://nixos.org/nix/install | sh
     # https://nixos.org/manual/nix/stable/introduction.html
+    curl -L https://nixos.org/nix/install | sh
+  else
+    # Retrieve final URL, ex.: https://releases.nixos.org/nix/nix-2.11.1/install
+    FINAL_URL=$(finalurl https://nixos.org/nix/install)
+    INSTALLED_VERSION=$(nix --version | cut -d' ' -f3)
+    # https://www.regextester.com/ [0-9]+\.[0-9]+\.[0-9]+
+    # https://stackoverflow.com/a/3320468
+    REMOTE_VERSION=$(echo $FINAL_URL | grep -P '[0-9]+\.[0-9]+\.[0-9]+' -o)
+    # Compare installed version to remote version
+    if [ $(version $INSTALLED_VERSION) -lt $(version $REMOTE_VERSION) ]; then
+      echo -e "Updating nix to ${REMOTE_VERSION}"
+      curl -L https://nixos.org/nix/install | sh
+    else
+      echo "Installed version (${INSTALLED_VERSION}) is up to date (remote is ${REMOTE_VERSION})"
+    fi
   fi
 }
 
