@@ -1,21 +1,24 @@
 #!/usr/bin/env sh
 echo setup-go
 
-function install_go () {
-  sudo eopkg install golang
-}
+# Includes setup-utilities only for standalone (directly calling)
+# use of this script (otherwise the script is called from setup
+# and the import is not necessary)
+if [ $0 ]
+then
+. ./setup-utilities
+fi
 
 function setup_go () {
   
   if ! exists go; then
-    install_go
-  #else
-    #VERSION_CURRENT=``
-  #  if [ $(versionen $VERSION_CURRENT) -lt $(version $VERSION) ]; th
-  #    echo  older $VERSION $PACKAGE_VERSION
-  #    install_go
-  #  fi
+    install_packages $@
   fi
+  
+  # Afterwards, the update process is up to the system package manager
 }
 
-setup_go
+PACKAGES_GO=(golang)
+
+setup_go "${PACKAGES_GO[@]}"
+
