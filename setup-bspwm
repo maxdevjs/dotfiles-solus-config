@@ -1,11 +1,22 @@
 #!/usr/bin/env sh
 echo setup-bspwm
 
+# Includes setup-utilities only for standalone (directly calling)
+# use of this script (otherwise the script is called from setup
+# and the import is not necessary)
+if [ $0 ]
+then
+. ./setup-utilities
+fi
+
 function setup_bspwm () {
   # https://getsol.us/articles/software/desktop-environments/en/
-  if ! exists bspwm; then
-    sudo eopkg install bspwm sxhkd #dunst
-  fi
+  install_packages $@
+
+  repos $@ 
 }
 
-setup_bspwm
+PACKAGES_BSPWM=(bspwm sxhkd) #dunst
+
+setup_bspwm "${PACKAGES_BSPWM[@]}"
+
