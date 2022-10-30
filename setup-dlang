@@ -1,22 +1,24 @@
 #!/usr/bin/env sh
 echo setup-dlang
 
-function install_dlang () {
-  sudo eopkg install curl-devel dmd dub rocksdb rocksdb-devel xxhash xxhash-devel zstd zstd-devel
-}
+# Includes setup-utilities only for standalone (directly calling)
+# use of this script (otherwise the script is called from setup
+# and the import is not necessary)
+if [ $0 ]
+then
+. ./setup-utilities
+fi
 
 function setup_dlang () {
   
   if ! exists ldc2; then
-    install_dlang
-  #else
-    #VERSION_CURRENT=``
-  #  if [ $(versionen $VERSION_CURRENT) -lt $(version $VERSION) ]; th
-  #    echo  older $VERSION $PACKAGE_VERSION
-  #    install_go
-  #  fi
+    install_packages $@
   fi
+  
+  # Afterwards, the update process is up to the system package manager
 }
 
-#setup_dlang
-install_dlang
+PACKAGES_DLANG=(curl-devel dmd dub rocksdb rocksdb-devel xxhash xxhash-devel zstd zstd-devel)
+
+setup_dlang "${PACKAGES_DLANG[@]}"
+
