@@ -1,0 +1,32 @@
+#!/usr/bin/env sh
+echo setup-deno
+
+# Includes setup-utilities only for standalone (directly calling)
+# use of this script (otherwise the script is called from setup
+# and the import is not necessary)
+if [ $0 ]
+then
+. ./setup-utilities
+fi
+
+setup_deno () {
+  # https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8
+  REMOTE_VERSION=`curl -s https://api.github.com/repos/denoland/deno/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")' | cut -c2-`
+
+  if ! exists deno; then
+    # https://deno.land/#installation
+    curl -fsSL https://deno.land/install.sh | sh
+  else
+    INSTALLED_VERSION=$(deno --version | cut -d' ' -f2 | head -1)
+    
+    if [ $(version $INSTALLED_VERSION) -lt $(version $REMOTE_VERSION) ]; then
+      echo -e "Updating deno to ${REMOTE_VERSION}"
+      curl -fsSL https://deno.land/install.sh | sh
+    else
+      echo "Installed version (${INSTALLED_VERSION}) is up to date (remote is ${REMOTE_VERSION})"
+    fi
+  fi
+}
+
+setup_deno
+
