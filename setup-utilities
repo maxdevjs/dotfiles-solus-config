@@ -7,14 +7,13 @@ SETUP_DIR=$HOME/Me/system/setup
 BIN_DIR=$HOME/.local/bin
 LIST_INSTALLED=`eopkg list-installed | cut -d' ' -f1`
 
-git_remote_url_reachable() {
-  git ls-remote "$1" CHECK_GIT_REMOTE_URL_REACHABILITY &>/dev/null
-}
-
 exists() { type -t "$1" > /dev/null 2>&1; }
 
-not_exists_dir() { 
-  [ ! -d $1 ]
+# https://stackoverflow.com/questions/3074288/get-final-url-after-curl-is-redirected#comment71496988_5300429
+finalurl() { curl --silent --location --head --output /dev/null --write-out '%{url_effective}' -- "$@"; }
+
+git_remote_url_reachable() {
+  git ls-remote "$1" CHECK_GIT_REMOTE_URL_REACHABILITY &>/dev/null
 }
 
 install_packages () {
@@ -28,6 +27,10 @@ install_packages () {
       sudo eopkg install -y $package
     fi
   done
+}
+
+not_exists_dir() { 
+  [ ! -d $1 ]
 }
 
 single_repo() {
@@ -85,8 +88,8 @@ repos() {
   cd $SETUP_DIR
 }
 
-# https://stackoverflow.com/a/37939589
-function version { echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'; }
+# https://stackoverflow.com/a/37939589 
+version() { echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'; }
 
 if [ ! -d "$BIN_DIR" ]; then
   mkdir -p $BIN_DIR
