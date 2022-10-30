@@ -1,19 +1,18 @@
 #!/usr/bin/env sh
 echo setup-i3
 
+# Includes setup-utilities only for standalone (directly calling)
+# use of this script (otherwise the script is called from setup
+# and the import is not necessary)
+if [ $0 ]
+then
 . ./setup-utilities
+fi
 
 function setup_i3 () {
   # https://getsol.us/articles/software/desktop-environments/en/
-  #if ! exists i3; then
-    #sudo eopkg install dunst i3 maim nitrogen polybar rofi
-    #install_packages "${PACKAGES_I3[@]}"
-    install_packages $@
-  #fi
-  
-  #REPOS=(compton dunst i3 maim nitrogen polybar rofi)
-  #repos "${PACKAGES_I3[@]}"
-  
+  install_packages $@
+
   repos $@ 
 }
 
@@ -21,7 +20,7 @@ function setup_i3 () {
 #https://dev.to/l04db4l4nc3r/compositors-in-linux-1hhb
 #https://wiki.archlinux.org/title/Picom
 
-PACKAGES_I3=(picom dunst i3 maim nitrogen polybar rofi)
+PACKAGES_I3=(picom dunst i3 i3lock maim nitrogen polybar rofi)
 
 setup_i3 "${PACKAGES_I3[@]}"
-#setup_i3
+
