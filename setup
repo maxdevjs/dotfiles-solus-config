@@ -4,21 +4,27 @@
 . ./setup-utilities
 . ./setup-system-packages
 
+# System
+
 . ./setup-shells
 . ./setup-direnv
-. ./setup-dlang
 . ./setup-fonts
-. ./setup-go
-. ./setup-nix
 . ./setup-guix
+. ./setup-nix
 . ./setup-ssh
 . ./setup-flatpak
-. ./setup-docker
 . ./setup-bspwm
 . ./setup-i3
-. ./setup-3rd-party
-. ./setup-dev-tools
+. ./setup-3rd-party # TODO: check this
 . ./setup-samba
+
+# Dev
+
+. ./setup-deno
+. ./setup-dev-tools
+. ./setup-docker
+. ./setup-dlang
+. ./setup-go
 . ./setup-nvim
 
 #. ./setup-vnc

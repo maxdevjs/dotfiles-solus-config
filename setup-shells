@@ -1,7 +1,13 @@
 #!/usr/bin/env sh
 echo setup-shells
 
+# Includes setup-utilities only for standalone (directly calling)
+# use of this script (otherwise the script is called from setup
+# and the import is not necessary)
+if [ $0 ]
+then
 . ./setup-utilities
+fi
 
 # Interesting readings:
 # https://unix.stackexchange.com/questions/38175/difference-between-login-shell-and-non-login-shell/46856#46856

@@ -1,7 +1,13 @@
 #!/usr/bin/env sh
 echo setup-system-packages
 
+# Includes setup-utilities only for standalone (directly calling)
+# use of this script (otherwise the script is called from setup
+# and the import is not necessary)
+if [ $0 ]
+then
 . ./setup-utilities
+fi
 
 function install_system_packages () {
   #if [[ $LIST_INSTALLED != gcc ]]; then
@@ -21,7 +27,7 @@ PACKAGES_DEV_LANGUAGES=(elixir luarocks)
 PACKAGES_DEV_TOOLS=(git git-cola git-extras github-cli insomnia tig) #beekeeper-studio
 PACKAGES_EDITORS=(neovim python-neovim vim vscode)
 PACKAGES_EMACS=(emacs)
-PACKAGES_FILE_MANAGERS_NAUTILUS=(dconf-editor gnome-sushi nautilus-share nautilus-terminal seahorse-nautilus) # filemanager-actions-nautilus nautilus-folder-icons nautilus-sendto
+PACKAGES_FILE_MANAGERS_NAUTILUS=(dconf-editor gnome-sushi nautilus-share seahorse-nautilus) # filemanager-actions-nautilus nautilus-folder-icons nautilus-terminal nautilus-sendto
 #PACKAGES_FONTS=(font-manager font-awesome-ttf font-jetbrainsmono-ttf source-code-pro)
 PACKAGES_GAMES=(gnome-2048)
 PACKAGES_GRAPHICS=(flameshot gcolor3 gimp inkscape)

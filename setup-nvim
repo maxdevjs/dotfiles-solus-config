@@ -1,12 +1,18 @@
 #!/usr/bin/env sh
 echo setup-nvim
 
+# Includes setup-utilities only for standalone (directly calling)
+# use of this script (otherwise the script is called from setup
+# and the import is not necessary)
+if [ $0 ]
+then
 . ./setup-utilities
+fi
 
 setup_nvim () {
-  #REPOS=(astrovim)
-
   install_packages $@
+  
+  # TODO: check when backup config
   
   #mv ~/.config/nvim ~/.config/nvimbackup
   # Currently testing AstroNvim
@@ -19,6 +25,7 @@ setup_nvim () {
   #
 }
 
-PACKAGES_I3=(neovim)
+PACKAGES_NVIM=(neovim)
 
-setup_nvim "${PACKAGES_I3[@]}"
+setup_nvim "${PACKAGES_NVIM[@]}"
+
